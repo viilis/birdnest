@@ -1,5 +1,4 @@
 <script lang="ts">
-    let timeInMills = 0;
 </script>
 
 <header>
