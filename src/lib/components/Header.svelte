@@ -2,5 +2,5 @@
 </script>
 
 <header>
-    <h1>Fetch timer</h1>
+	<h1>Fetch timer</h1>
 </header>
