@@ -1,8 +1,9 @@
 import { pilotSchema, serialNumberSchema } from '$lib/schemas';
 import type { RequestHandler } from './$types';
+import 'dotenv'
 
 export const GET: RequestHandler = async ({ url }) => {
-	const baseUrl = 'https://assignments.reaktor.com/birdnest/pilots/';
+	const baseUrl = `${process.env.BASE_URI}pilots/`
 	const serialNumber = url.searchParams.get('serialNumber');
 
 	if (!serialNumber) {
@@ -35,7 +36,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		});
 	}
 
-	return new Response(JSON.stringify({ data: pilotDataValidation.value }), {
+	return new Response(JSON.stringify(pilotDataValidation.value), {
 		headers: {
 			'Content-Type': 'application/json',
 		},

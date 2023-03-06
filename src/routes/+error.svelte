@@ -1,3 +1,1 @@
-<div>
-    Woop! Error occured.
-</div>
+<div>Woops! Error occured.</div>

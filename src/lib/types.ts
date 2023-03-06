@@ -5,8 +5,12 @@ export interface DroneResponse {
 			deviceStarted: string;
 			uptimeSeconds: number;
 			updateIntervalMs: number;
+			attr_deviceId: string;
 		};
-		capture: string;
+		capture: {
+			drone: Drone[];
+			attr_snapshotTimestamp: string;
+		};
 	};
 }
 
@@ -16,6 +20,13 @@ export interface PilotResponse {
 	lastName: string;
 	phoneNumber: string;
 	createdDt: string;
+	email: string;
+}
+
+export interface PilotDetails {
+	firstName: string;
+	lastName: string;
+	phoneNumber: string;
 	email: string;
 }
 
@@ -35,4 +46,10 @@ export interface Drone {
 	positionY: number;
 	positionX: number;
 	altitude: number;
+}
+
+export interface DronesAndPilots {
+	drones: DroneResponse;
+	pilots?: PilotDetails[];
+	closest?: Drone;
 }

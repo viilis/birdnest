@@ -3,7 +3,7 @@ import { XMLParser } from 'fast-xml-parser';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
-	const baseUrl = 'https://assignments.reaktor.com/birdnest/drones';
+	const baseUrl = `${process.env.BASE_URI}drones/`;
 	const xmlParserOptions = {
 		ignoreAttributes: false,
 		attributeNamePrefix: 'attr_',
@@ -29,7 +29,7 @@ export const GET: RequestHandler = async () => {
 		});
 	}
 
-	return new Response(JSON.stringify({ data: value }), {
+	return new Response(JSON.stringify(value), {
 		headers: {
 			'Content-Type': 'application/json',
 		},

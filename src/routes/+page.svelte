@@ -1,8 +1,14 @@
 <script lang="ts">
-	export let data;
+	import type { DroneResponse } from '$lib/types';
+
+	export let data: DroneResponse;
 </script>
 
 <div>
-	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+	<h1>Drones</h1>
+	<div>
+		{#each data.report.capture.drone as drone}
+			<p>{drone.serialNumber}</p>
+		{/each}
+	</div>
 </div>
